@@ -28,18 +28,15 @@ body {
     padding: 20px;
     
     /* === THAY ĐỔI: THÊM ẢNH NỀN === */
-    /* background-color: var(--color-bg); <-- Vô hiệu hóa màu nền cũ */
     background-image: url('logo.png');
-    background-size: 100vh; /* Phủ kín màn hình */
+    background-size: auto 100vh; 
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Nền đứng yên khi cuộn */
+    background-attachment: fixed;
 }
 
 .title-container {
-    /* === THAY ĐỔI: NỀN MỜ === */
-    background-color: rgba(255, 255, 255, 0.95); /* thay vì 'white' */
-    
+    background-color: rgba(255, 255, 255, 0.98); 
     border: 1px solid #e0e0e0;
     border-radius: 50px;
     padding: 12px 35px;
@@ -55,12 +52,10 @@ h1 {
 }
 
 .info-panel {
-    /* === THAY ĐỔI: THÊM NỀN MỜ VÀ ĐỆM === */
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     padding: 10px 25px;
     border-radius: 25px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    
     font-size: 1.25em;
     font-weight: 600;
     color: #555;
@@ -74,9 +69,7 @@ h1 {
 
 /* --- Phần Lưới Ô Chữ --- */
 .crossword-grid {
-    /* === THAY ĐỔI: NỀN MỜ === */
-    background-color: rgba(255, 255, 255, 0.95); /* thay vì 'white' */
-
+    background-color: rgba(255, 255, 255, 0.98); 
     display: grid;
     grid-template-columns: var(--clue-width) repeat(var(--grid-size), var(--cell-size));
     border: 1px solid #e0e0e0;
@@ -93,7 +86,6 @@ h1 {
     box-sizing: border-box;
 }
 
-/* Đây là các ô STT (1, 2, 3...) */
 .grid-cell.header,
 .grid-cell.clue-number {
     background-color: #fafafa;
@@ -116,7 +108,6 @@ h1 {
     background-color: white;
 }
 
-/* Thêm kiểu cho ô góc (từ bước trước) */
 .grid-cell.corner {
     background-color: #fff;
 }
@@ -139,10 +130,24 @@ h1 {
     transition: all 0.2s ease-in-out;
 }
 
+/* Thêm class 'correct' khi giải đúng */
+.char-input.correct {
+    background-color: #dcedc8;
+    color: #33691e;
+    border-color: #aed581;
+}
+.char-input:disabled {
+    background-color: #f5f5f5;
+}
+
 .char-input.keyword-char {
     background-color: var(--color-keyword);
     border-color: var(--color-keyword-border);
     color: #8c1945;
+}
+
+.char-input.correct.keyword-char {
+    background-color: #f48fb1;
 }
 
 .char-input:focus {
@@ -162,9 +167,7 @@ h1 {
 }
 
 .clue-row {
-    /* === THAY ĐỔI: NỀN MỜ === */
-    background-color: rgba(255, 255, 255, 0.95); /* thay vì '#fff' */
-    
+    background-color: rgba(255, 255, 255, 0.98);
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     padding: 15px 20px;
@@ -180,7 +183,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    gap: 10px; /* Giảm gap 1 chút */
 }
 
 .clue-text {
@@ -212,15 +215,37 @@ h1 {
     white-space: nowrap;
     transition: all 0.2s ease;
 }
+/* Style cho nút Hint 2 (bị vô hiệu hóa) */
+.hint-btn.hint-2 {
+    background-color: #c8e6c9; /* Màu xanh lá nhạt */
+    color: #757575;
+}
+/* Style cho nút Hint 2 khi được kích hoạt */
+.hint-btn.hint-2:not(:disabled) {
+    background-color: #ffb74d; /* Màu cam nhạt hơn Hint 1 */
+    color: white;
+}
+.hint-btn.hint-2:not(:disabled):hover {
+    background-color: #fb8c00;
+}
 
 .check-btn {
     background-color: var(--color-primary);
     color: white;
 }
 
-.hint-btn {
+.hint-btn { /* Đây là Hint 1 */
     background-color: var(--color-hint);
     color: white;
+}
+.check-btn:disabled, .hint-btn:disabled, .clear-btn:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+.hint-btn.hint-2:disabled {
+     background-color: #e0e0e0;
 }
 
 .check-btn:hover {
@@ -239,6 +264,8 @@ h1 {
     font-size: 0.9em;
     color: #999;
     font-style: italic;
+    min-width: 50px;
+    text-align: right;
 }
 
 /* --- Kiểu cho nút Xóa hàng --- */
@@ -259,4 +286,96 @@ h1 {
     background-color: #596263;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     transform: translateY(-1px);
+}
+
+/* *** CSS MỚI CHO LOGIC MỚI ***
+*/
+
+/* 1. Khu vực chữ cái lộn xộn */
+.jumbled-letters-container {
+    width: calc(var(--clue-width) + var(--grid-size) * var(--cell-size));
+    margin-top: 30px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+.jumbled-letters-container h3 {
+    margin: 0 0 15px 0;
+    color: var(--color-primary);
+}
+.jumbled-letters {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 40px;
+}
+/* Kiểu cho từng chữ cái */
+.letter {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    background-color: var(--color-keyword);
+    border: 1px solid var(--color-keyword-border);
+    border-radius: 5px;
+    color: #8c1945;
+}
+
+/* 2. Khu vực Chốt KEY WORD */
+.keyword-guess-container {
+    width: calc(var(--clue-width) + var(--grid-size) * var(--cell-size));
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+.keyword-guess-container h3 {
+    text-align: center;
+    margin: 0 0 15px 0;
+    color: #1e8e3e; /* Màu xanh lá */
+}
+.guess-controls {
+    display: flex;
+    gap: 10px;
+}
+#keyword-guess-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+#keyword-guess-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,123,255,0.3);
+}
+#keyword-guess-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1em;
+    background-color: #1e8e3e; /* Màu xanh lá */
+    color: white;
+    transition: all 0.2s ease;
+}
+#keyword-guess-btn:hover {
+    background-color: #166a2e;
+    box-shadow: 0 2px 5px rgba(30,142,62,0.3);
+}
+.guess-message {
+    margin: 10px 0 0 0;
+    text-align: center;
+    font-weight: 600;
+    color: #c0392b;
 }
