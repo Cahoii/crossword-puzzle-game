@@ -351,7 +351,7 @@ function handleGuessKeyword() {
 
         // 2. Thông báo
         alert("CHÍNH XÁC! Bạn đã tìm ra KEY WORD!");
-        guessMessage.textContent = `CHÚC MỪNG! BẠN ĐÃ TÌM RA KEY WORD: ${KEY_WORD_ANSWER} (Vào lúc: ${timeString}) vơii số điểm: ${playerScore}`;
+        guessMessage.textContent = `CHÚC MỪNG! BẠN ĐÃ TÌM RA KEY WORD: ${KEY_WORD_ANSWER} (Vào lúc: ${timeString}) với số điểm: ${playerScore}`;
         
         // 3. Vô hiệu hóa khu vực đoán
         guessInput.disabled = true;
