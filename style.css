@@ -5,38 +5,46 @@
     --clue-width: 40px;
 
     /* Bảng màu "thân thiện" mới */
-    --color-bg: #f7f9fc;          /* Nền chính (thay vì #f4f4f4) */
-    --color-text: #333;           /* Màu chữ chính */
-    --color-primary: #007bff;     /* Xanh dương chính (cho nút) */
-    --color-primary-hover: #0056b3; /* Xanh khi di chuột */
-    --color-hint: #fd7e14;        /* Cam (cho nút hint) */
-    --color-hint-hover: #e86100;  /* Cam khi di chuột */
-    --color-input: #e6f7ff;       /* Nền ô hàng ngang */
-    --color-input-border: #b3e5fc; /* Viền ô hàng ngang */
-    --color-keyword: #fddde6;     /* Nền ô dọc (hồng nhạt) */
-    --color-keyword-border: #f48fb1; /* Viền ô dọc */
-    --color-focus: #007bff;       /* Viền xanh khi nhấp vào ô */
+    --color-bg: #f7f9fc;
+    --color-text: #333;
+    --color-primary: #007bff;
+    --color-primary-hover: #0056b3;
+    --color-hint: #fd7e14;
+    --color-hint-hover: #e86100;
+    --color-input: #e6f7ff;
+    --color-input-border: #b3e5fc;
+    --color-keyword: #fddde6;
+    --color-keyword-border: #f48fb1;
+    --color-focus: #007bff;
 }
 
 body {
     /* DÙNG FONT MỚI */
     font-family: 'Open Sans', Arial, sans-serif;
-    background-color: var(--color-bg);
     color: var(--color-text);
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    
+    /* === THAY ĐỔI: THÊM ẢNH NỀN === */
+    /* background-color: var(--color-bg); <-- Vô hiệu hóa màu nền cũ */
+    background-image: url('logo.png');
+    background-size: 100vh; /* Phủ kín màn hình */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Nền đứng yên khi cuộn */
 }
 
 .title-container {
-    background-color: white;
+    /* === THAY ĐỔI: NỀN MỜ === */
+    background-color: rgba(255, 255, 255, 0.95); /* thay vì 'white' */
+    
     border: 1px solid #e0e0e0;
-    border-radius: 50px; /* Bo tròn tối đa */
+    border-radius: 50px;
     padding: 12px 35px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Bóng mờ nhẹ */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 h1 {
@@ -47,6 +55,12 @@ h1 {
 }
 
 .info-panel {
+    /* === THAY ĐỔI: THÊM NỀN MỜ VÀ ĐỆM === */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 25px;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    
     font-size: 1.25em;
     font-weight: 600;
     color: #555;
@@ -58,27 +72,28 @@ h1 {
     font-weight: 700;
 }
 
-/* --- Phần Lưới Ô Chữ (Thêm bóng và bo tròn) --- */
+/* --- Phần Lưới Ô Chữ --- */
 .crossword-grid {
+    /* === THAY ĐỔI: NỀN MỜ === */
+    background-color: rgba(255, 255, 255, 0.95); /* thay vì 'white' */
+
     display: grid;
     grid-template-columns: var(--clue-width) repeat(var(--grid-size), var(--cell-size));
     border: 1px solid #e0e0e0;
-    background-color: white;
-    
-    /* Hiệu ứng mới */
-    border-radius: 12px; /* Bo tròn cả lưới */
-    overflow: hidden; /* Giữ các ô con bên trong góc bo */
+    border-radius: 12px;
+    overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
 }
 
 .grid-cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    border-right: 1px solid #f0f0f0; /* Viền mờ hơn */
-    border-bottom: 1px solid #f0f0f0; /* Viền mờ hơn */
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
     box-sizing: border-box;
 }
 
+/* Đây là các ô STT (1, 2, 3...) */
 .grid-cell.header,
 .grid-cell.clue-number {
     background-color: #fafafa;
@@ -101,22 +116,26 @@ h1 {
     background-color: white;
 }
 
-/* --- Ô Input (Nâng cấp quan trọng) --- */
+/* Thêm kiểu cho ô góc (từ bước trước) */
+.grid-cell.corner {
+    background-color: #fff;
+}
+
+
+/* --- Ô Input --- */
 .char-input {
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
-    border: 1px solid var(--color-input-border); /* Viền nhạt */
+    border: 1px solid var(--color-input-border);
     text-align: center;
     font-size: 1.3em;
-    font-weight: 700; /* Chữ đậm */
+    font-weight: 700;
     text-transform: uppercase;
     box-sizing: border-box;
     background-color: var(--color-input);
     color: #034f7b;
-    
-    /* HIỆU ỨNG MỚI: Chuyển động mượt mà */
     transition: all 0.2s ease-in-out;
 }
 
@@ -126,33 +145,33 @@ h1 {
     color: #8c1945;
 }
 
-/* HIỆU ỨNG MỚI: Khi nhấp vào ô */
 .char-input:focus {
-    outline: none; /* Bỏ viền cam/xanh mặc định */
+    outline: none;
     border: 2px solid var(--color-focus);
     box-shadow: 0 0 10px rgba(0,123,255,0.3);
-    transform: scale(1.05); /* Phóng to nhẹ */
+    transform: scale(1.05);
 }
 
-/* --- Khu Vực Câu Hỏi (Bo tròn, bóng mờ) --- */
+/* --- Khu Vực Câu Hỏi --- */
 .clue-area {
     width: calc(var(--clue-width) + var(--grid-size) * var(--cell-size));
-    margin-top: 30px; /* Thêm khoảng cách */
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
 .clue-row {
-    background-color: #fff;
+    /* === THAY ĐỔI: NỀN MỜ === */
+    background-color: rgba(255, 255, 255, 0.95); /* thay vì '#fff' */
+    
     border: 1px solid #e0e0e0;
-    border-radius: 10px; /* Bo tròn nhiều hơn */
+    border-radius: 10px;
     padding: 15px 20px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     transition: box-shadow 0.2s ease;
 }
 
-/* HIỆU ỨNG MỚI: Nổi lên khi di chuột */
 .clue-row:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
@@ -165,7 +184,7 @@ h1 {
 }
 
 .clue-text {
-    font-style: normal; /* Bỏ in nghiêng */
+    font-style: normal;
     flex-grow: 1;
     font-size: 1.1em;
     color: #333;
@@ -182,17 +201,15 @@ h1 {
     font-weight: 600;
 }
 
-/* --- Các nút (Bo tròn, hiệu ứng) --- */
+/* --- Các nút --- */
 .check-btn, .hint-btn {
-    padding: 10px 16px; /* Nút to hơn */
+    padding: 10px 16px;
     border: none;
-    border-radius: 8px; /* Bo tròn */
+    border-radius: 8px;
     cursor: pointer;
     font-weight: 700;
     font-size: 0.9em;
     white-space: nowrap;
-    
-    /* HIỆU ỨNG MỚI: Chuyển động mượt */
     transition: all 0.2s ease;
 }
 
@@ -206,11 +223,10 @@ h1 {
     color: white;
 }
 
-/* HIỆU ỨNG MỚI: Khi di chuột */
 .check-btn:hover {
     background-color: var(--color-primary-hover);
     box-shadow: 0 2px 5px rgba(0,123,255,0.3);
-    transform: translateY(-1px); /* Nhấc nút lên 1px */
+    transform: translateY(-1px);
 }
 
 .hint-btn:hover {
@@ -225,19 +241,17 @@ h1 {
     font-style: italic;
 }
 
-/* --- Kiểu cho nút Xóa hàng (mới) --- */
+/* --- Kiểu cho nút Xóa hàng --- */
 .clear-btn {
     padding: 10px 12px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 1.1em; /* Làm cho icon to hơn */
+    font-size: 1.1em;
     line-height: 1;
-    
-    background-color: #7f8c8d; /* Màu xám trung tính */
+    background-color: #7f8c8d;
     color: white;
-    
     transition: all 0.2s ease;
 }
 

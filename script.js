@@ -285,7 +285,7 @@ function renderClueArea() {
         // Nút Hint
         let hintBtn = document.createElement('button');
         hintBtn.className = 'hint-btn';
-        hintBtn.textContent = 'Mua Hint (-5đ)';
+        hintBtn.textContent = 'Mua Hint (-đ)';
         hintBtn.dataset.row = rowData.row; // Lưu số hàng vào nút
         mainDiv.appendChild(hintBtn);
         
