@@ -9,7 +9,7 @@ const puzzleData = [
         hint1: "Gợi ý phụ 1 (4 điểm)", 
         hint2: "Gợi ý phụ 2 (6 điểm)",
         startCol: 4,
-        keywordIndex: 3 // Chữ 'V'
+        keywordIndex: 3 
     },
     { 
         row: 2, 
@@ -18,7 +18,7 @@ const puzzleData = [
         hint1: "Gợi ý phụ 1 (4 điểm)", 
         hint2: "Gợi ý phụ 2 (6 điểm)",
         startCol: 3, 
-        keywordIndex: 4 // Chữ 'I'
+        keywordIndex: 4 
     },
     { 
         row: 3, 
@@ -27,7 +27,7 @@ const puzzleData = [
         hint1: "Gợi ý phụ 1 (4 điểm)", 
         hint2: "Gợi ý phụ 2 (6 điểm)",
         startCol: 5, 
-        keywordIndex: 2 // Chữ 'E'
+        keywordIndex: 2
     },
     { 
         row: 4, 
@@ -36,7 +36,7 @@ const puzzleData = [
         hint1: "Gợi ý phụ 1 (4 điểm)", 
         hint2: "Gợi ý phụ 2 (6 điểm)",
         startCol: 4, 
-        keywordIndex: 3 // Chữ 'T'
+        keywordIndex: 3 
     },
     { 
         row: 5, 
@@ -44,8 +44,8 @@ const puzzleData = [
         clue: "Gợi ý chính cho hàng 5...", 
         hint1: "Gợi ý phụ 1 (4 điểm)", 
         hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 2, 
-        keywordIndex: 5 // Chữ 'O'
+        startCol: 1, 
+        keywordIndex: 6 
     },
     { 
         row: 6, 
@@ -53,8 +53,8 @@ const puzzleData = [
         clue: "Gợi ý chính cho hàng 6...", 
         hint1: "Gợi ý phụ 1 (4 điểm)", 
         hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 7, 
-        keywordIndex: 0 // Chữ 'A'
+        startCol: 6, 
+        keywordIndex: 1
     },
     { 
         row: 7, 
@@ -62,8 +62,8 @@ const puzzleData = [
         clue: "Gợi ý chính cho hàng 7...", 
         hint1: "Gợi ý phụ 1 (4 điểm)", 
         hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 3, 
-        keywordIndex: 4 // Chữ 'M'
+        startCol: 2, 
+        keywordIndex: 5 // Chữ 'M'
     }
 ];
 
