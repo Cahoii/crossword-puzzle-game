@@ -225,3 +225,24 @@ h1 {
     font-style: italic;
 }
 
+/* --- Kiểu cho nút Xóa hàng (mới) --- */
+.clear-btn {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1em; /* Làm cho icon to hơn */
+    line-height: 1;
+    
+    background-color: #7f8c8d; /* Màu xám trung tính */
+    color: white;
+    
+    transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+    background-color: #596263;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
