@@ -39,6 +39,22 @@
       <p class="guess-message" id="guess-message"></p>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script>
+      // Dán cấu hình Firebase của bạn vào đây
+      const firebaseConfig = {
+        apiKey: "...",
+        authDomain: "...",
+        projectId: "...",
+        storageBucket: "...",
+        messagingSenderId: "...",
+        appId: "...",
+      };
+      // Khởi tạo Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore(); // Hoặc firebase.database()
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
