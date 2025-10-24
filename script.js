@@ -206,7 +206,7 @@ const KEY_WORD_ANSWER = "INSTRUCTIONSETDESIGN"; // Đã sửa
 const ROWS_TO_GUESS = 15; // 75% của 20 hàng
 
 // === THÊM CÀI ĐẶT TIMER ===
-const GAME_DURATION_MINUTES = 1; // 150 phút = 2.5 tiếng
+const GAME_DURATION_MINUTES = 15;
 let timerInterval = null; // Biến để giữ ID của bộ đếm giờ
 
 const STORAGE_KEY = 'crosswordProgress';
@@ -340,7 +340,7 @@ function hideGameArea() {
  */
 function endGameByTimeout() {
     console.log("HẾT GIỜ!");
-    alert("Đã hết 150 phút! Bạn không thể tiếp tục nộp bài.");
+    alert("Đã hết giờ làm bài! Bạn không thể tiếp tục nộp bài.");
     freezeGame(); // Đóng băng game
     if (guessMessage) {
         guessMessage.textContent = "Đã hết giờ! Bạn không thể nộp đáp án.";
