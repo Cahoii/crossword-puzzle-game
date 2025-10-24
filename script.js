@@ -450,10 +450,22 @@ function freezeGame() {
 // === HÀM CẬP NHẬT ĐỂ ĐÓNG BĂNG TRÒ CHƠI ===
 // ========================================================
 // Xử lý nút Chốt KEY WORD
+// Xử lý nút Chốt KEY WORD (Đã cập nhật đầy đủ)
 function handleGuessKeyword() {
-    // 1. Kiểm tra điều kiện
+    // 1. Lấy tên đội và kiểm tra
+    const teamNameInput = document.getElementById('team-name-input');
+    const teamName = teamNameInput ? teamNameInput.value.trim() : 'Unknown Team'; // Lấy tên hoặc đặt mặc định
+
+    if (!teamNameInput || teamName === "") { // Kiểm tra cả input có tồn tại không
+        guessMessage.textContent = "Vui lòng nhập Tên Đội của bạn trước khi chốt!";
+        alert("Vui lòng nhập Tên Đội của bạn!");
+        if (teamNameInput) teamNameInput.focus(); // Chỉ focus nếu input tồn tại
+        return; // Dừng lại nếu chưa nhập tên
+    }
+
+    // 2. Kiểm tra điều kiện đoán
     const solvedRows = Object.values(gameProgress).filter(p => p.solved).length;
-    
+
     if (solvedRows < ROWS_TO_GUESS || playerScore < 10) {
         guessMessage.textContent = `Bạn cần giải ít nhất ${ROWS_TO_GUESS} hàng ngang và có ít nhất 10 điểm để đoán!`;
         return;
@@ -462,30 +474,59 @@ function handleGuessKeyword() {
     const guess = guessInput.value.toUpperCase().trim();
     if (guess === KEY_WORD_ANSWER) {
         // --- ĐÚNG KEY WORD ---
-        
-        // 1. Ghi lại thời gian
+
+        // 1. Ghi lại thời gian chi tiết
         const now = new Date();
-        const timeString = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+        const timeString = now.toLocaleTimeString('vi-VN'); // vd: 22:30:15
 
         // 2. Thông báo
         alert("CHÍNH XÁC! Bạn đã tìm ra KEY WORD!");
-        guessMessage.textContent = `Chúc mừng bạn đã tìm ra KEY WORD: ${KEY_WORD_ANSWER} (vào lúc: ${timeString}) với số điểm: ${playerScore}`;
-        
-        // 3. Vô hiệu hóa khu vực đoán
+        guessMessage.textContent = `CHÚC MỪNG ${teamName}! BẠN ĐÃ TÌM RA KEY WORD: ${KEY_WORD_ANSWER} (Vào lúc: ${timeString}) với số điểm cuối: ${playerScore}`;
+
+        // 3. Vô hiệu hóa khu vực đoán và tên đội
         guessInput.disabled = true;
         guessBtn.disabled = true;
+        if (teamNameInput) teamNameInput.disabled = true; // Khóa luôn ô nhập tên
 
         // 4. Đóng băng toàn bộ trò chơi
         freezeGame();
-        
-        // (Chúng ta có thể save() lần cuối nếu muốn)
-        saveProgress(); 
+
+        // 5. GỬI DỮ LIỆU LÊN FIREBASE
+        try {
+            // Dùng timestamp của server Firebase để đảm bảo công bằng
+            const completionTime = firebase.firestore.FieldValue.serverTimestamp();
+
+            // Ghi vào collection tên là 'completions'
+            db.collection('completions').add({
+                team: teamName,
+                time: completionTime,
+                finalScore: playerScore,
+                guess: guess // Lưu lại đáp án đã đoán
+            })
+            .then((docRef) => {
+                console.log("Đã ghi lại thời gian hoàn thành, ID: ", docRef.id);
+                // Có thể cập nhật thêm vào guessMessage nếu muốn
+                // guessMessage.textContent += " -- Đã gửi kết quả.";
+            })
+            .catch((error) => {
+                console.error("Lỗi khi gửi kết quả lên Firebase: ", error);
+                guessMessage.textContent += " -- Lỗi! Không gửi được kết quả (kiểm tra console).";
+                alert("Lỗi khi gửi kết quả lên server. Vui lòng báo BTC!");
+            });
+
+        } catch (e) {
+            console.error("Lỗi khởi tạo Firebase hoặc Firestore: ", e);
+            alert("Lỗi kết nối đến server Firebase. Vui lòng báo cho BTC!");
+        }
+
+        // 6. Lưu tiến trình lần cuối (trạng thái đã khóa)
+        saveProgress();
 
     } else {
         // --- SAI KEY WORD ---
         playerScore -= GUESS_PENALTY;
         document.getElementById('score-display').textContent = playerScore;
-        saveProgress();
+        saveProgress(); // Lưu lại điểm sau khi bị trừ
         guessMessage.textContent = `SAI! Bạn bị trừ ${GUESS_PENALTY} điểm.`;
         alert(`SAI! Bạn bị trừ ${GUESS_PENALTY} điểm.`);
     }

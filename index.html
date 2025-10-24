@@ -12,7 +12,14 @@
   </head>
   <body>
     <div class="title-container">
-      <h1>JS-</h1>
+      <h1>TRÒ CHƠI Ô CHỮ</h1>
+    </div>
+    <div class="team-name-container">
+      <input
+        type="text"
+        id="team-name-input"
+        placeholder="Nhập tên đội của bạn..."
+      />
     </div>
 
     <div class="info-panel">Điểm số: <span id="score-display">10</span></div>
@@ -42,19 +49,21 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
     <script>
-      // Dán cấu hình Firebase của bạn vào đây
+      // Dán đối tượng firebaseConfig bạn vừa sao chép vào đây
       const firebaseConfig = {
-        apiKey: "...",
-        authDomain: "...",
-        projectId: "...",
-        storageBucket: "...",
-        messagingSenderId: "...",
-        appId: "...",
+        apiKey: "AIzaSy...", // Thay bằng key thật của bạn
+        authDomain: "crossword-puzzle-82a68.firebaseapp.com",
+        projectId: "crossword-puzzle-82a68",
+        storageBucket: "crossword-puzzle-82a68.appspot.com",
+        messagingSenderId: "187127084641",
+        appId: "1:187127084641:web:b1cba0b008283f57dc28",
       };
-      // Khởi tạo Firebase
+
+      // Khởi tạo Firebase (dùng cú pháp 'compat')
       firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore(); // Hoặc firebase.database()
+      const db = firebase.firestore();
     </script>
+
     <script src="script.js"></script>
   </body>
 </html>

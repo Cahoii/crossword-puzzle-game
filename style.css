@@ -384,3 +384,27 @@ h1 {
 .crossword-grid {
     margin-top: 10px; /* Giảm khoảng cách trên lưới (thử 0px nếu muốn sát hơn) */
 }
+
+.team-name-container {
+  width: calc(var(--clue-width) + var(--grid-size) * var(--cell-size));
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.98);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  margin-bottom: 30px;
+}
+
+#team-name-input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1.1em;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; /* Đảm bảo padding không làm tràn */
+}
+
+#team-name-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
