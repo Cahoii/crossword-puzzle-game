@@ -347,6 +347,33 @@ function endGameByTimeout() {
         guessMessage.style.color = "#c0392b"; 
     }
     updateTimerDisplay(); // Cập nhật lần cuối thành 00:00
+    try {
+        // Lấy tên đội (kể cả khi ô input đã bị khóa)
+        const teamName = teamNameInput ? teamNameInput.value.trim() : 'Unknown Team (Timeout)'; 
+        // Nếu tên đội rỗng (ví dụ: người chơi chưa kịp nhập trước khi hết giờ), đặt tên mặc định
+        const finalTeamName = teamName === "" ? 'Chưa nhập tên (Timeout)' : teamName;
+
+        const timeoutTime = firebase.firestore.FieldValue.serverTimestamp(); // Lấy timestamp của server
+
+        // Ghi vào collection 'completions' với trạng thái 'timeout'
+        db.collection('completions').add({
+            team: finalTeamName,
+            time: timeoutTime,
+            finalScore: playerScore, // Điểm số lúc hết giờ
+            status: "timeout" // Đánh dấu là hết giờ
+        })
+        .then((docRef) => {
+            console.log("Đã ghi lại trạng thái Timeout, ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Lỗi khi ghi trạng thái Timeout: ", error);
+            // Có thể thêm thông báo lỗi cho người dùng nếu cần
+        });
+
+    } catch (e) {
+        console.error("Lỗi Firebase khi ghi Timeout: ", e);
+        // Có thể thêm thông báo lỗi cho người dùng nếu cần
+    }
 }
 
 /**
