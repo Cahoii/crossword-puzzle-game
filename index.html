@@ -14,26 +14,34 @@
     <div class="title-container">
       <h1>TRÒ CHƠI Ô CHỮ</h1>
     </div>
+
     <div class="team-name-container">
       <input
         type="text"
         id="team-name-input"
         placeholder="Nhập tên đội của bạn..."
       />
+      <button id="start-game-btn">Xác Nhận & Bắt Đầu</button>
     </div>
 
-    <div class="info-panel">Điểm số: <span id="score-display">10</span></div>
+    <div class="info-panel game-area-hidden">
+      Điểm số: <span id="score-display">10</span>
+    </div>
 
-    <div class="crossword-grid" id="crossword-grid"></div>
+    <div id="timer-display" class="game-area-hidden">
+      Thời gian còn lại: <span id="time-remaining">--:--</span>
+    </div>
 
-    <div class="clue-area" id="clue-area"></div>
+    <div class="crossword-grid game-area-hidden" id="crossword-grid"></div>
 
-    <div class="jumbled-letters-container">
+    <div class="clue-area game-area-hidden" id="clue-area"></div>
+
+    <div class="jumbled-letters-container game-area-hidden">
       <h3>CÁC CHỮ CÁI ĐÃ TÌM THẤY</h3>
       <div class="jumbled-letters" id="jumbled-letters-display"></div>
     </div>
 
-    <div class="keyword-guess-container">
+    <div class="keyword-guess-container game-area-hidden">
       <h3>CHỐT KEY WORD</h3>
       <div class="guess-controls">
         <input

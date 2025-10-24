@@ -1,14 +1,13 @@
 // --- GIAI ĐOẠN 1: VẼ GIAO DIỆN ---
 
-// 1. ĐỊNH NGHĨA "ĐỀ BÀI" (ĐÃ SỬA keywordIndex và 2 answer)
-// 1. DEFINE PUZZLE DATA (NEW QUESTIONS FROM CHAPTER 12 CONCEPTS)
+// 1. ĐỊNH NGHĨA "ĐỀ BÀI" (Bộ câu hỏi tiếng Anh)
 const puzzleData = [
     { 
         row: 1, // Letter 'I'
         answer: "IMMEDIATE", 
         clue: "Addressing mode where the operand's value is contained within the instruction itself.",
         hint1: "No memory reference needed for the operand.",
-        hint2: "Starts with 'I'.",
+        hint2: "IMMEDIATE",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -17,7 +16,7 @@ const puzzleData = [
         answer: "MNEMONICS", 
         clue: "Symbolic abbreviations like ADD, SUB, LOAD used to represent machine opcodes.",
         hint1: "Makes assembly language readable.",
-        hint2: "The 'N' is the second letter.",
+        hint2: "MNEMONICS",
         startCol: 6, // 7 - 1
         keywordIndex: 1 
     },
@@ -26,7 +25,7 @@ const puzzleData = [
         answer: "STACK", 
         clue: "Implicit addressing often involves operations on the top of this LIFO structure.",
         hint1: "Uses PUSH and POP operations.",
-        hint2: "Starts with 'S'.",
+        hint2: "STACK",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -35,7 +34,7 @@ const puzzleData = [
         answer: "TWOSCOMPLEMENT", 
         clue: "The most common scheme for representing signed integers in computers.",
         hint1: "Negation involves inverting bits and adding one.",
-        hint2: "The first letter is 'T'.",
+        hint2: "TWOSCOMPLEMENT",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -44,7 +43,7 @@ const puzzleData = [
         answer: "REGISTER", 
         clue: "A high-speed storage location within the CPU used to hold data temporarily.",
         hint1: "Faster to access than main memory.",
-        hint2: "Operand addressing mode.",
+        hint2: "REGISTER",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -53,7 +52,7 @@ const puzzleData = [
         answer: "UNSIGNED", 
         clue: "An integer data type that represents only non-negative values.",
         hint1: "Contrasts with signed integers.",
-        hint2: "Starts with 'U'.",
+        hint2: "UNSIGNED",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -62,7 +61,7 @@ const puzzleData = [
         answer: "ASCII", 
         clue: "A widely used 7-bit character encoding standard.",
         hint1: "Also known as IRA.",
-        hint2: "The third letter is 'C'.",
+        hint2: "ASCII",
         startCol: 5, // 7 - 2
         keywordIndex: 2 
     },
@@ -71,7 +70,7 @@ const puzzleData = [
         answer: "TRANSFER", 
         clue: "Type of instruction that moves data (e.g., LOAD, STORE). Data ___.",
         hint1: "Not Arithmetic, Logical, or Control.",
-        hint2: "Starts with 'T'.",
+        hint2: "TRANSFER",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -80,7 +79,7 @@ const puzzleData = [
         answer: "DIRECT", 
         clue: "Addressing mode where the address field in the instruction contains the effective address of the operand.",
         hint1: "Requires one memory reference to fetch the operand.",
-        hint2: "The second letter is 'I'.",
+        hint2: "DIRECT",
         startCol: 6, // 7 - 1
         keywordIndex: 1 
     },
@@ -89,7 +88,7 @@ const puzzleData = [
         answer: "OPCODE", 
         clue: "The part of a machine instruction that specifies the operation to be performed.",
         hint1: "Short for Operation Code.",
-        hint2: "Starts with 'O'.",
+        hint2: "OPCODE",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -98,7 +97,7 @@ const puzzleData = [
         answer: "BOOLEAN", 
         clue: "Type of algebra used for logical operations like AND, OR, NOT.",
         hint1: "Operates on true/false values.",
-        hint2: "The last letter is 'N'.",
+        hint2: "BOOLEAN",
         startCol: 2, // 7 - 5
         keywordIndex: 5 
     },
@@ -107,7 +106,7 @@ const puzzleData = [
         answer: "SYSTEM", 
         clue: "Instructions for ___ Control are usually privileged and used by the OS.",
         hint1: "Manages hardware resources.",
-        hint2: "Starts with 'S'.",
+        hint2: "SYSTEM",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -116,7 +115,7 @@ const puzzleData = [
         answer: "EFFECTIVEADDRESS", 
         clue: "The actual memory address of an operand after all addressing mode calculations.",
         hint1: "Abbreviated EA.",
-        hint2: "Starts with 'E'.",
+        hint2: "EFFECTIVEADDRESS",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -125,7 +124,7 @@ const puzzleData = [
         answer: "BYTE", 
         clue: "A fundamental unit of data storage, typically consisting of 8 bits.",
         hint1: "Can represent a single character.",
-        hint2: "The third letter is 'T'.",
+        hint2: "BYTE",
         startCol: 5, // 7 - 2
         keywordIndex: 2 
     },
@@ -134,7 +133,7 @@ const puzzleData = [
         answer: "DISPLACEMENT", 
         clue: "Addressing mode that adds an offset value to a base register's content.",
         hint1: "Also known as base-offset addressing.",
-        hint2: "Starts with 'D'.",
+        hint2: "DISPLACEMENT",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -143,7 +142,7 @@ const puzzleData = [
         answer: "ENDIANNESS", 
         clue: "Refers to the byte order (Little or Big) in multi-byte data types.",
         hint1: "Determines how bytes are stored in memory.",
-        hint2: "Starts with 'E'.",
+        hint2: "ENDIANNESS",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -152,7 +151,7 @@ const puzzleData = [
         answer: "SHIFT", 
         clue: "A logical or arithmetic operation that moves bits left or right within a register.",
         hint1: "Can be logical, arithmetic, or rotate.",
-        hint2: "Starts with 'S'.",
+        hint2: "SHIFT",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -161,7 +160,7 @@ const puzzleData = [
         answer: "INPUTOUTPUT", 
         clue: "Instructions used to communicate with peripheral devices.",
         hint1: "Often abbreviated as I/O.",
-        hint2: "First letter is 'I'.",
+        hint2: "INPUTOUTPUT",
         startCol: 7, // 7 - 0
         keywordIndex: 0 
     },
@@ -170,7 +169,7 @@ const puzzleData = [
         answer: "LOGICAL", 
         clue: "Operations like AND, OR, XOR, NOT fall into this category.",
         hint1: "Operate on data bit-by-bit.",
-        hint2: "The fourth letter is 'G'.",
+        hint2: "LOGICAL",
         startCol: 4, // 7 - 3
         keywordIndex: 3 
     },
@@ -179,7 +178,7 @@ const puzzleData = [
         answer: "INSTRUCTION", 
         clue: "A single operation specified by an opcode and possibly operands.",
         hint1: "Basic unit of execution for a processor.",
-        hint2: "The second letter is 'N'.",
+        hint2: "INSTRUCTION",
         startCol: 6, // 7 - 1
         keywordIndex: 1 
     }
@@ -191,7 +190,8 @@ const KEYWORD_COL = 7;
 
 // Khai báo biến "thùng"
 let gridContainer, clueContainer, jumbledLettersDisplay, 
-    guessInput, guessBtn, guessMessage;
+    guessInput, guessBtn, guessMessage, teamNameInput, startGameBtn,
+    infoPanel, timerDisplay, timeRemainingSpan;
 
 
 // === GIAI ĐOẠN 2: LẬP TRÌNH LOGIC (THEO THỂ LỆ MỚI) ===
@@ -202,8 +202,12 @@ const POINTS_PER_ROW = 10;
 const HINT_1_COST = 4;
 const HINT_2_COST = 6;
 const GUESS_PENALTY = 10;
-const KEY_WORD_ANSWER = "INSTRUCTIONSETDESIGN"; // <-- !!! THAY ĐÁP ÁN ĐÚNG VÀO ĐÂY
-const ROWS_TO_GUESS = 15; // 75% của 7 hàng là 5.25, làm tròn lên 6
+const KEY_WORD_ANSWER = "INSTRUCTIONSETDESIGN"; // Đã sửa
+const ROWS_TO_GUESS = 15; // 75% của 20 hàng
+
+// === THÊM CÀI ĐẶT TIMER ===
+const GAME_DURATION_MINUTES = 1; // 150 phút = 2.5 tiếng
+let timerInterval = null; // Biến để giữ ID của bộ đếm giờ
 
 const STORAGE_KEY = 'crosswordProgress';
 
@@ -211,14 +215,17 @@ let playerScore = PLAYER_START_SCORE;
 let gameProgress = {}; 
 let foundKeywordLetters = []; // Mảng chứa các chữ cái lộn xộn
 
-// --- 2. LOGIC LƯU/TẢI (localStorage) ---
+// --- 2. LOGIC LƯU/TẢI (localStorage) (ĐÃ CẬP NHẬT) ---
 
 function saveProgress() {
     const dataToSave = {
         score: playerScore,
         progress: gameProgress,
         letters: foundKeywordLetters,
-        uessInputValue: guessInput ? guessInput.value : '', // Lưu giá trị ô đoán
+        // === THÊM CÁC DÒNG MỚI ===
+        teamName: teamNameInput ? teamNameInput.value : '', // Lưu tên đội
+        gameStarted: localStorage.getItem('gameEndTime') !== null, // Lưu trạng thái game đã bắt đầu chưa
+        guessInputValue: guessInput ? guessInput.value : '', // Lưu giá trị ô đoán
         guessInputDisabled: guessInput ? guessInput.disabled : false, // Lưu trạng thái khóa ô đoán
         guessBtnDisabled: guessBtn ? guessBtn.disabled : false, // Lưu trạng thái khóa nút đoán
         guessMessageText: guessMessage ? guessMessage.textContent : '' // Lưu thông báo
@@ -228,27 +235,209 @@ function saveProgress() {
 
 function loadProgress() {
     const savedData = localStorage.getItem(STORAGE_KEY);
+    const gameEndTime = localStorage.getItem('gameEndTime'); // Lấy thời gian kết thúc
+
     if (savedData) {
         const data = JSON.parse(savedData);
         playerScore = data.score || PLAYER_START_SCORE;
         gameProgress = data.progress || {};
         foundKeywordLetters = data.letters || [];
         
-        updateUIFromProgress();
-        // Khôi phục trạng thái phần đoán KEY WORD
-        if (guessInput) {
-            guessInput.value = data.guessInputValue || '';
-            guessInput.disabled = data.guessInputDisabled || false;
+        // Nếu game đã bắt đầu (có endTime) HOẶC đã lưu trạng thái bắt đầu
+        if (gameEndTime || data.gameStarted) {
+             // Hiển thị phần chơi
+            showGameArea();
+            // Khôi phục tên đội và khóa ô nhập
+            if (teamNameInput) {
+                teamNameInput.value = data.teamName || '';
+                teamNameInput.disabled = true;
+            }
+            if (startGameBtn) {
+                 startGameBtn.disabled = true;
+                 startGameBtn.textContent = "Đã bắt đầu";
+            }
+
+            // Cập nhật giao diện từ tiến độ đã lưu
+            updateUIFromProgress(); 
+
+            // Khôi phục trạng thái phần đoán KEY WORD
+            if (guessInput) {
+                guessInput.value = data.guessInputValue || '';
+                guessInput.disabled = data.guessInputDisabled || false;
+            }
+            if (guessBtn) {
+                guessBtn.disabled = data.guessBtnDisabled || false;
+            }
+            if (guessMessage) {
+                guessMessage.textContent = data.guessMessageText || '';
+            }
+
+            // Nếu game đã bắt đầu VÀ chưa thắng/chưa hết giờ, khởi động lại timer
+            const gameAlreadyWon = guessBtn ? guessBtn.disabled : false;
+             if (gameEndTime && !gameAlreadyWon) {
+                 const now = new Date().getTime();
+                 if (now >= parseInt(gameEndTime, 10)) {
+                     endGameByTimeout(); 
+                     updateTimerDisplay(); // Cập nhật hiển thị thành 00:00
+                 } else {
+                     if (timerInterval) clearInterval(timerInterval); 
+                     updateTimerDisplay(); // Hiển thị thời gian còn lại lần đầu
+                     timerInterval = setInterval(checkGameTimer, 1000); // Bắt đầu kiểm tra + cập nhật
+                 }
+             } else {
+                 updateTimerDisplay(); // Vẫn hiển thị thời gian (dù là 00:00 hoặc sau khi thắng)
+             }
+
+        } else {
+             // Game chưa bắt đầu, giữ ẩn các phần tử
+             hideGameArea(); // Đảm bảo mọi thứ bị ẩn
+             if (teamNameInput) teamNameInput.value = data.teamName || ''; // Chỉ khôi phục tên
         }
-        if (guessBtn) {
-            guessBtn.disabled = data.guessBtnDisabled || false;
-        }
-        if (guessMessage) {
-            guessMessage.textContent = data.guessMessageText || '';
-        }
+    } else {
+        // Không có dữ liệu lưu, ẩn game area
+        hideGameArea();
     }
-    document.getElementById('score-display').textContent = playerScore;
+    // Luôn cập nhật điểm ban đầu (chỉ khi infoPanel đã được gán VÀ hiện)
+    if (infoPanel && infoPanel.style.display !== 'none') {
+        document.getElementById('score-display').textContent = playerScore;
+    }
 }
+
+// === CÁC HÀM HELPER MỚI CHO VIỆC ẨN/HIỆN VÀ TIMER ===
+// Hàm hiển thị khu vực chơi game (SỬA LỖI)
+function showGameArea() {
+    // Hiện các thành phần chính
+     document.querySelectorAll('.info-panel, .crossword-grid, .clue-area, .jumbled-letters-container, .keyword-guess-container, #timer-display').forEach(el => {
+         if (el) { // Kiểm tra xem element có tồn tại không
+             el.style.display = ''; // Bỏ display: none
+             el.classList.remove('game-area-hidden'); // Xóa class ẩn
+             
+             // Gán lại display đúng nếu cần thiết (dựa vào cấu trúc CSS của bạn)
+             if (el.id === 'crossword-grid') el.style.display = 'grid';
+             else if (el.classList.contains('clue-area')) el.style.display = 'flex';
+             // Các element khác dùng display mặc định (block, flex, inline...) là được
+             // Nếu dùng flexbox cho info-panel hoặc timer-display, thì đặt lại ở đây
+             else if (el.classList.contains('info-panel')) el.style.display = ''; // Hoặc flex nếu cần
+             else if (el.id === 'timer-display') el.style.display = ''; // Hoặc flex nếu cần
+             else if (el.classList.contains('jumbled-letters-container')) el.style.display = ''; // Block mặc định
+             else if (el.classList.contains('keyword-guess-container')) el.style.display = ''; // Block mặc định
+         }
+     });
+     // Cập nhật lại điểm số (vì infoPanel đã hiện)
+     if (infoPanel) document.getElementById('score-display').textContent = playerScore;
+     // Cập nhật lại timer display lần đầu
+     updateTimerDisplay();
+}
+// Hàm ẩn khu vực chơi game
+function hideGameArea() {
+     document.querySelectorAll('.info-panel, .crossword-grid, .clue-area, .jumbled-letters-container, .keyword-guess-container, #timer-display').forEach(el => {
+          if (el) el.style.display = 'none'; // Đặt lại display none
+     });
+}
+
+/**
+ * Hàm này được gọi khi hết giờ
+ */
+function endGameByTimeout() {
+    console.log("HẾT GIỜ!");
+    alert("Đã hết 150 phút! Bạn không thể tiếp tục nộp bài.");
+    freezeGame(); // Đóng băng game
+    if (guessMessage) {
+        guessMessage.textContent = "Đã hết giờ! Bạn không thể nộp đáp án.";
+        guessMessage.style.color = "#c0392b"; 
+    }
+    updateTimerDisplay(); // Cập nhật lần cuối thành 00:00
+}
+
+/**
+ * Hàm CẬP NHẬT HIỂN THỊ đồng hồ đếm ngược
+ */
+function updateTimerDisplay() {
+    if (!timeRemainingSpan) return; // Nếu chưa load xong
+
+    const endTime = localStorage.getItem('gameEndTime');
+    if (!endTime) {
+        timeRemainingSpan.textContent = "--:--"; // Chưa bắt đầu
+        return;
+    }
+
+    const now = new Date().getTime();
+    const timeLeft = parseInt(endTime, 10) - now;
+
+    if (timeLeft <= 0) {
+        timeRemainingSpan.textContent = "00:00"; // Hết giờ
+    } else {
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        // Định dạng MM:SS
+        timeRemainingSpan.textContent = 
+            `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+}
+
+
+/**
+ * Hàm này được gọi 1 giây 1 lần để kiểm tra và CẬP NHẬT TIMER
+ */
+function checkGameTimer() {
+    const endTime = localStorage.getItem('gameEndTime');
+    if (!endTime) return; 
+
+    const now = new Date().getTime();
+    
+    if (now >= parseInt(endTime, 10)) {
+        endGameByTimeout(); 
+        if (timerInterval) clearInterval(timerInterval); 
+    } else {
+        // Cập nhật hiển thị thời gian còn lại
+        updateTimerDisplay(); 
+    }
+}
+
+/** * Hàm bắt đầu game và timer (ĐÃ CẬP NHẬT)
+ */
+function startGame() {
+    const teamName = teamNameInput ? teamNameInput.value.trim() : '';
+    if (!teamNameInput || teamName === "") {
+        alert("Vui lòng nhập Tên Đội!");
+        teamNameInput.focus();
+        return;
+    }
+
+    // Khóa ô tên và nút bắt đầu
+    teamNameInput.disabled = true;
+    startGameBtn.disabled = true;
+    startGameBtn.textContent = "Đã bắt đầu";
+
+    // Chỉ đặt timer nếu chưa có
+    let endTime = localStorage.getItem('gameEndTime');
+    if (!endTime) {
+        console.log("Bắt đầu đếm giờ: " + GAME_DURATION_MINUTES + " phút.");
+        const now = new Date().getTime();
+        const deadline = now + (GAME_DURATION_MINUTES * 60 * 1000);
+        localStorage.setItem('gameEndTime', deadline);
+        endTime = deadline; // Gán lại endTime
+        
+        // Lưu lại trạng thái game đã bắt đầu và tên đội
+        saveProgress(); 
+    }
+
+    // Hiển thị khu vực chơi game (SAU KHI ĐÃ ĐẶT TIMER VÀ LƯU)
+    showGameArea();
+
+    // Bắt đầu kiểm tra và cập nhật timer
+    const now = new Date().getTime();
+     if (now >= parseInt(endTime, 10)) {
+         endGameByTimeout(); 
+         updateTimerDisplay(); // Hiện 00:00
+     } else {
+         if (timerInterval) clearInterval(timerInterval); 
+         updateTimerDisplay(); // Hiển thị lần đầu
+         timerInterval = setInterval(checkGameTimer, 1000); // Bắt đầu kiểm tra + cập nhật mỗi giây
+     }
+}
+// === KẾT THÚC CÁC HÀM HELPER MỚI ===
+
 
 function updateUIFromProgress() {
     // Cập nhật hiển thị chữ cái lộn xộn
@@ -326,6 +515,11 @@ function updateJumbledLettersDisplay() {
 
 // Thêm chữ cái vào mảng lộn xộn
 function addJumbledLetter(rowNum, rowData) {
+    // SỬA LỖI: Kiểm tra keywordIndex hợp lệ
+    if (rowData.keywordIndex < 0 || rowData.keywordIndex >= rowData.answer.length) {
+        console.error(`Lỗi dữ liệu hàng ${rowNum}: keywordIndex ${rowData.keywordIndex} không hợp lệ cho đáp án "${rowData.answer}"`);
+        return;
+    }
     const keywordChar = rowData.answer[rowData.keywordIndex].toUpperCase();
     
     if (!foundKeywordLetters.includes(keywordChar)) {
@@ -345,6 +539,10 @@ function handleCheckClick(event) {
     const inputElements = [];
     for (let i = 0; i < rowData.answer.length; i++) {
         const input = document.getElementById(`input-${rowNum}-${i}`);
+        if (!input) { // Thêm kiểm tra lỗi
+             console.error(`Không tìm thấy input: input-${rowNum}-${i}`);
+             continue; // Bỏ qua nếu input không tồn tại
+        }
         userInput += input.value;
         inputElements.push(input);
     }
@@ -355,17 +553,24 @@ function handleCheckClick(event) {
         document.getElementById('score-display').textContent = playerScore;
 
         const now = new Date();
-        const timeString = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
-        document.getElementById(`time-${rowNum}`).textContent = timeString;
+        const timeString = now.toLocaleTimeString('vi-VN');
+        const timeEl = document.getElementById(`time-${rowNum}`); // Lấy element trước khi gán
+        if (timeEl) timeEl.textContent = timeString;
 
         inputElements.forEach(input => {
             input.disabled = true;
             input.classList.add('correct');
         });
         event.target.disabled = true;
-        document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="1"]`).disabled = true;
-        document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="2"]`).disabled = true;
-        document.querySelector(`.clear-btn[data-row="${rowNum}"]`).disabled = true;
+        
+        // Sửa lỗi: querySelector có thể trả về null
+        const hint1Btn = document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="1"]`);
+        if (hint1Btn) hint1Btn.disabled = true;
+        const hint2Btn = document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="2"]`);
+        if (hint2Btn) hint2Btn.disabled = true;
+        const clearBtn = document.querySelector(`.clear-btn[data-row="${rowNum}"]`);
+        if (clearBtn) clearBtn.disabled = true;
+
 
         if (!gameProgress[rowNum]) gameProgress[rowNum] = {};
         gameProgress[rowNum].solved = true;
@@ -392,10 +597,14 @@ function handleHint1Click(event) {
     playerScore -= HINT_1_COST;
     document.getElementById('score-display').textContent = playerScore;
 
-    document.getElementById(`hint-1-${rowNum}`).style.display = 'block';
+    const hintText1 = document.getElementById(`hint-1-${rowNum}`);
+    if (hintText1) hintText1.style.display = 'block';
     event.target.disabled = true;
     
-    document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="2"]`).disabled = false;
+    // Mở khóa nút Hint 2
+    const hint2Btn = document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="2"]`);
+    if (hint2Btn) hint2Btn.disabled = false;
+
 
     if (!gameProgress[rowNum]) gameProgress[rowNum] = {};
     gameProgress[rowNum].hint1Purchased = true;
@@ -414,7 +623,8 @@ function handleHint2Click(event) {
     playerScore -= HINT_2_COST;
     document.getElementById('score-display').textContent = playerScore;
 
-    document.getElementById(`hint-2-${rowNum}`).style.display = 'block';
+    const hintText2 = document.getElementById(`hint-2-${rowNum}`);
+    if (hintText2) hintText2.style.display = 'block';
     event.target.disabled = true;
 
     if (!gameProgress[rowNum]) gameProgress[rowNum] = {};
@@ -422,45 +632,38 @@ function handleHint2Click(event) {
     saveProgress();
 }
 
-// ========================================================
-// === HÀM MỚI ĐỂ ĐÓNG BĂNG TRÒ CHƠI ===
-// ========================================================
 /**
- * Đóng băng toàn bộ trò chơi sau khi đoán đúng KEY WORD
+ * Đóng băng toàn bộ trò chơi sau khi đoán đúng KEY WORD hoặc hết giờ
  */
 function freezeGame() {
-    // 1. Vô hiệu hóa tất cả các ô input trên lưới
-    document.querySelectorAll('.char-input').forEach(input => {
+    // 1. Vô hiệu hóa tất cả các ô input trên lưới (trừ những ô đã đúng)
+    document.querySelectorAll('.char-input:not(.correct)').forEach(input => {
         input.disabled = true;
     });
 
-    // 2. Vô hiệu hóa tất cả các nút hành động (Check, Hint, Clear)
-    document.querySelectorAll('.check-btn, .hint-btn, .clear-btn').forEach(button => {
+    // 2. Vô hiệu hóa tất cả các nút hành động (trừ những nút đã bị khóa)
+    document.querySelectorAll('.check-btn:not(:disabled), .hint-btn:not(:disabled), .clear-btn:not(:disabled)').forEach(button => {
         button.disabled = true;
     });
     
-    // 3. Vô hiệu hóa khu vực đoán (đã làm trong handleGuessKeyword,
-    //    nhưng làm lại ở đây cho chắc chắn)
+    // 3. Vô hiệu hóa khu vực đoán
     if (guessInput) guessInput.disabled = true;
     if (guessBtn) guessBtn.disabled = true;
+    if (teamNameInput) teamNameInput.disabled = true; 
+    if (startGameBtn) startGameBtn.disabled = true; // Khóa nút bắt đầu nếu game đang chạy
 }
 
 
-// ========================================================
-// === HÀM CẬP NHẬT ĐỂ ĐÓNG BĂNG TRÒ CHƠI ===
-// ========================================================
-// Xử lý nút Chốt KEY WORD
 // Xử lý nút Chốt KEY WORD (Đã cập nhật đầy đủ)
 function handleGuessKeyword() {
     // 1. Lấy tên đội và kiểm tra
-    const teamNameInput = document.getElementById('team-name-input');
-    const teamName = teamNameInput ? teamNameInput.value.trim() : 'Unknown Team'; // Lấy tên hoặc đặt mặc định
+    const teamName = teamNameInput ? teamNameInput.value.trim() : 'Unknown Team'; 
 
-    if (!teamNameInput || teamName === "") { // Kiểm tra cả input có tồn tại không
+    if (!teamNameInput || teamName === "") { 
         guessMessage.textContent = "Vui lòng nhập Tên Đội của bạn trước khi chốt!";
         alert("Vui lòng nhập Tên Đội của bạn!");
-        if (teamNameInput) teamNameInput.focus(); // Chỉ focus nếu input tồn tại
-        return; // Dừng lại nếu chưa nhập tên
+        if (teamNameInput) teamNameInput.focus(); 
+        return; 
     }
 
     // 2. Kiểm tra điều kiện đoán
@@ -477,7 +680,7 @@ function handleGuessKeyword() {
 
         // 1. Ghi lại thời gian chi tiết
         const now = new Date();
-        const timeString = now.toLocaleTimeString('vi-VN'); // vd: 22:30:15
+        const timeString = now.toLocaleTimeString('vi-VN'); 
 
         // 2. Thông báo
         alert("CHÍNH XÁC! Bạn đã tìm ra KEY WORD!");
@@ -486,27 +689,25 @@ function handleGuessKeyword() {
         // 3. Vô hiệu hóa khu vực đoán và tên đội
         guessInput.disabled = true;
         guessBtn.disabled = true;
-        if (teamNameInput) teamNameInput.disabled = true; // Khóa luôn ô nhập tên
+        if (teamNameInput) teamNameInput.disabled = true; 
 
         // 4. Đóng băng toàn bộ trò chơi
         freezeGame();
+        
+        // === DỪNG TIMER KHI THẮNG ===
+        if (timerInterval) clearInterval(timerInterval); 
 
         // 5. GỬI DỮ LIỆU LÊN FIREBASE
         try {
-            // Dùng timestamp của server Firebase để đảm bảo công bằng
-            const completionTime = firebase.firestore.FieldValue.serverTimestamp();
-
-            // Ghi vào collection tên là 'completions'
+            const completionTime = firebase.firestore.FieldValue.serverTimestamp(); 
             db.collection('completions').add({
                 team: teamName,
                 time: completionTime,
                 finalScore: playerScore,
-                guess: guess // Lưu lại đáp án đã đoán
+                guess: guess
             })
             .then((docRef) => {
                 console.log("Đã ghi lại thời gian hoàn thành, ID: ", docRef.id);
-                // Có thể cập nhật thêm vào guessMessage nếu muốn
-                // guessMessage.textContent += " -- Đã gửi kết quả.";
             })
             .catch((error) => {
                 console.error("Lỗi khi gửi kết quả lên Firebase: ", error);
@@ -518,9 +719,9 @@ function handleGuessKeyword() {
             console.error("Lỗi khởi tạo Firebase hoặc Firestore: ", e);
             alert("Lỗi kết nối đến server Firebase. Vui lòng báo cho BTC!");
         }
-
+        
         // 6. Lưu tiến trình lần cuối (trạng thái đã khóa)
-        saveProgress();
+        saveProgress(); 
 
     } else {
         // --- SAI KEY WORD ---
@@ -752,8 +953,14 @@ function renderClueArea() {
                     input.value = '';
                     if (i === 0) firstInput = input;
                 } else if (i === 0 && !firstInput) { // Sửa lỗi: tìm ô đầu tiên có thể focus
-                     const allInputs = input.closest('.grid-cell').parentElement.querySelectorAll('input:not(:disabled)');
-                     if(allInputs.length > 0) firstInput = allInputs[0];
+                    // SỬA LỖI: Kiểm tra input có tồn tại không trước khi dùng closest
+                    if (input) {
+                        const parentRow = input.closest('.grid-cell').parentElement;
+                        if (parentRow) {
+                             const allInputs = parentRow.querySelectorAll('input:not(:disabled)');
+                             if(allInputs.length > 0) firstInput = allInputs[0];
+                        }
+                    }
                 }
             }
             if (firstInput) firstInput.focus();
@@ -787,26 +994,36 @@ function renderClueArea() {
 }
 
 
-// --- CHẠY HÀM KHI TẢI TRANG (CẬP NHẬT) ---
+// --- CHẠY HÀM KHI TẢI TRANG (ĐÃ CẬP NHẬT HOÀN TOÀN) ---
 document.addEventListener('DOMContentLoaded', () => {
-    // === LỖI ĐÃ SỬA ===
-    // Gán giá trị cho các biến "thùng" SAU KHI DOM đã tải
+    // Gán giá trị cho các biến DOM
     gridContainer = document.getElementById('crossword-grid');
     clueContainer = document.getElementById('clue-area');
     jumbledLettersDisplay = document.getElementById('jumbled-letters-display');
     guessInput = document.getElementById('keyword-guess-input');
     guessBtn = document.getElementById('keyword-guess-btn');
     guessMessage = document.getElementById('guess-message');
-    
-    // 1. Vẽ giao diện
+    teamNameInput = document.getElementById('team-name-input');
+    startGameBtn = document.getElementById('start-game-btn');
+    infoPanel = document.querySelector('.info-panel'); // SỬA LỖI: Dùng querySelector
+    timerDisplay = document.getElementById('timer-display'); // Lấy div timer
+    timeRemainingSpan = document.getElementById('time-remaining'); // Lấy span thời gian
+
+    // 1. Vẽ giao diện (luôn vẽ, nhưng ban đầu bị ẩn)
     renderGameBoard();
     renderClueArea();
     
-    // 2. Tải tiến độ
+    // 2. Tải tiến độ (Hàm này sẽ quyết định ẩn/hiện game và khởi động lại timer nếu cần)
     loadProgress();
     
     // 3. Gắn logic cho nút Chốt KEY WORD
     if (guessBtn) {
         guessBtn.addEventListener('click', handleGuessKeyword);
+    }
+    
+    // 4. Gắn logic cho nút BẮT ĐẦU GAME
+    // Chỉ gắn nếu nút chưa bị khóa (nghĩa là game chưa bắt đầu từ lần tải trước)
+    if (startGameBtn && !startGameBtn.disabled) {
+        startGameBtn.addEventListener('click', startGame);
     }
 });

@@ -408,3 +408,44 @@ h1 {
   border-color: var(--color-primary);
   outline: none;
 }
+
+/* --- Kiểu cho nút Bắt đầu --- */
+#start-game-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1em;
+  background-color: #28a745; /* Màu xanh lá cây */
+  color: white;
+  transition: all 0.2s ease;
+  margin-left: 10px; /* Tạo khoảng cách với ô input */
+}
+
+#start-game-btn:hover {
+  background-color: #218838;
+  box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3);
+}
+
+#start-game-btn:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+/* --- Kiểu cho Đồng hồ đếm ngược --- */
+#timer-display {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #c0392b; /* Màu đỏ */
+  background-color: rgba(255, 255, 255, 0.98);
+  padding: 10px 25px;
+  border-radius: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+#time-remaining {
+  font-weight: 700;
+}
