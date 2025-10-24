@@ -1,74 +1,192 @@
 // --- GIAI ĐOẠN 1: VẼ GIAO DIỆN ---
 
-// 1. ĐỊNH NGHĨA "ĐỀ BÀI" (ĐÃ CẬP NHẬT HINT)
+// 1. ĐỊNH NGHĨA "ĐỀ BÀI" (ĐÃ SỬA keywordIndex và 2 answer)
+// 1. DEFINE PUZZLE DATA (NEW QUESTIONS FROM CHAPTER 12 CONCEPTS)
 const puzzleData = [
     { 
-        row: 1, 
-        answer: "DONVIHANHCHINH", 
-        clue: "Gợi ý chính cho hàng 1...", 
-        hint1: "Gợi ý phụ 1 (4 điểm)", 
-        hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 4,
+        row: 1, // Letter 'I'
+        answer: "IMMEDIATE", 
+        clue: "Addressing mode where the operand's value is contained within the instruction itself.",
+        hint1: "No memory reference needed for the operand.",
+        hint2: "Starts with 'I'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+    { 
+        row: 2, // Letter 'N'
+        answer: "MNEMONICS", 
+        clue: "Symbolic abbreviations like ADD, SUB, LOAD used to represent machine opcodes.",
+        hint1: "Makes assembly language readable.",
+        hint2: "The 'N' is the second letter.",
+        startCol: 6, // 7 - 1
+        keywordIndex: 1 
+    },
+     { 
+        row: 3, // Letter 'S'
+        answer: "STACK", 
+        clue: "Implicit addressing often involves operations on the top of this LIFO structure.",
+        hint1: "Uses PUSH and POP operations.",
+        hint2: "Starts with 'S'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 4, // Letter 'T'
+        answer: "TWOSCOMPLEMENT", 
+        clue: "The most common scheme for representing signed integers in computers.",
+        hint1: "Negation involves inverting bits and adding one.",
+        hint2: "The first letter is 'T'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 5, // Letter 'R'
+        answer: "REGISTER", 
+        clue: "A high-speed storage location within the CPU used to hold data temporarily.",
+        hint1: "Faster to access than main memory.",
+        hint2: "Operand addressing mode.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 6, // Letter 'U'
+        answer: "UNSIGNED", 
+        clue: "An integer data type that represents only non-negative values.",
+        hint1: "Contrasts with signed integers.",
+        hint2: "Starts with 'U'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 7, // Letter 'C'
+        answer: "ASCII", 
+        clue: "A widely used 7-bit character encoding standard.",
+        hint1: "Also known as IRA.",
+        hint2: "The third letter is 'C'.",
+        startCol: 5, // 7 - 2
+        keywordIndex: 2 
+    },
+     { 
+        row: 8, // Letter 'T'
+        answer: "TRANSFER", 
+        clue: "Type of instruction that moves data (e.g., LOAD, STORE). Data ___.",
+        hint1: "Not Arithmetic, Logical, or Control.",
+        hint2: "Starts with 'T'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 9, // Letter 'I'
+        answer: "DIRECT", 
+        clue: "Addressing mode where the address field in the instruction contains the effective address of the operand.",
+        hint1: "Requires one memory reference to fetch the operand.",
+        hint2: "The second letter is 'I'.",
+        startCol: 6, // 7 - 1
+        keywordIndex: 1 
+    },
+     { 
+        row: 10, // Letter 'O'
+        answer: "OPCODE", 
+        clue: "The part of a machine instruction that specifies the operation to be performed.",
+        hint1: "Short for Operation Code.",
+        hint2: "Starts with 'O'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+      { 
+        row: 11, // Letter 'N'
+        answer: "BOOLEAN", 
+        clue: "Type of algebra used for logical operations like AND, OR, NOT.",
+        hint1: "Operates on true/false values.",
+        hint2: "The last letter is 'N'.",
+        startCol: 2, // 7 - 5
+        keywordIndex: 5 
+    },
+     { 
+        row: 12, // Letter 'S'
+        answer: "SYSTEM", 
+        clue: "Instructions for ___ Control are usually privileged and used by the OS.",
+        hint1: "Manages hardware resources.",
+        hint2: "Starts with 'S'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 13, // Letter 'E'
+        answer: "EFFECTIVEADDRESS", 
+        clue: "The actual memory address of an operand after all addressing mode calculations.",
+        hint1: "Abbreviated EA.",
+        hint2: "Starts with 'E'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 14, // Letter 'T'
+        answer: "BYTE", 
+        clue: "A fundamental unit of data storage, typically consisting of 8 bits.",
+        hint1: "Can represent a single character.",
+        hint2: "The third letter is 'T'.",
+        startCol: 5, // 7 - 2
+        keywordIndex: 2 
+    },
+     { 
+        row: 15, // Letter 'D'
+        answer: "DISPLACEMENT", 
+        clue: "Addressing mode that adds an offset value to a base register's content.",
+        hint1: "Also known as base-offset addressing.",
+        hint2: "Starts with 'D'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 16, // Letter 'E'
+        answer: "ENDIANNESS", 
+        clue: "Refers to the byte order (Little or Big) in multi-byte data types.",
+        hint1: "Determines how bytes are stored in memory.",
+        hint2: "Starts with 'E'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 17, // Letter 'S'
+        answer: "SHIFT", 
+        clue: "A logical or arithmetic operation that moves bits left or right within a register.",
+        hint1: "Can be logical, arithmetic, or rotate.",
+        hint2: "Starts with 'S'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 18, // Letter 'I'
+        answer: "INPUTOUTPUT", 
+        clue: "Instructions used to communicate with peripheral devices.",
+        hint1: "Often abbreviated as I/O.",
+        hint2: "First letter is 'I'.",
+        startCol: 7, // 7 - 0
+        keywordIndex: 0 
+    },
+     { 
+        row: 19, // Letter 'G'
+        answer: "LOGICAL", 
+        clue: "Operations like AND, OR, XOR, NOT fall into this category.",
+        hint1: "Operate on data bit-by-bit.",
+        hint2: "The fourth letter is 'G'.",
+        startCol: 4, // 7 - 3
         keywordIndex: 3 
     },
-    { 
-        row: 2, 
-        answer: "HANOI", 
-        clue: "Gợi ý chính cho hàng 2...", 
-        hint1: "Gợi ý phụ 1 (4 điểm)", 
-        hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 3, 
-        keywordIndex: 4 
-    },
-    { 
-        row: 3, 
-        answer: "HUE", 
-        clue: "Gợi ý chính cho hàng 3...", 
-        hint1: "Gợi ý phụ 1 (4 điểm)", 
-        hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 5, 
-        keywordIndex: 2
-    },
-    { 
-        row: 4, 
-        answer: "CANTHO", 
-        clue: "Gợi ý chính cho hàng 4...", 
-        hint1: "Gợi ý phụ 1 (4 điểm)", 
-        hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 4, 
-        keywordIndex: 3 
-    },
-    { 
-        row: 5, 
-        answer: "HAIPHONG", 
-        clue: "Gợi ý chính cho hàng 5...", 
-        hint1: "Gợi ý phụ 1 (4 điểm)", 
-        hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 1, 
-        keywordIndex: 6 
-    },
-    { 
-        row: 6, 
-        answer: "DANANG", 
-        clue: "Gợi ý chính cho hàng 6...", 
-        hint1: "Gợi ý phụ 1 (4 điểm)", 
-        hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 6, 
-        keywordIndex: 1
-    },
-    { 
-        row: 7, 
-        answer: "HOCHIMINH", 
-        clue: "Gợi ý chính cho hàng 7...", 
-        hint1: "Gợi ý phụ 1 (4 điểm)", 
-        hint2: "Gợi ý phụ 2 (6 điểm)",
-        startCol: 2, 
-        keywordIndex: 5 // Chữ 'M'
+     { 
+        row: 20, // Letter 'N'
+        answer: "INSTRUCTION", 
+        clue: "A single operation specified by an opcode and possibly operands.",
+        hint1: "Basic unit of execution for a processor.",
+        hint2: "The second letter is 'N'.",
+        startCol: 6, // 7 - 1
+        keywordIndex: 1 
     }
 ];
 
 // Các hằng số cài đặt
-const GRID_COLS = 17;
+const GRID_COLS = 23;
 const KEYWORD_COL = 7; 
 
 // Khai báo biến "thùng"
@@ -84,8 +202,8 @@ const POINTS_PER_ROW = 10;
 const HINT_1_COST = 4;
 const HINT_2_COST = 6;
 const GUESS_PENALTY = 10;
-const KEY_WORD_ANSWER = "VIETNAM"; // <-- !!! THAY ĐÁP ÁN ĐÚNG VÀO ĐÂY
-const ROWS_TO_GUESS = 6; // 75% của 7 hàng là 5.25, làm tròn lên 6
+const KEY_WORD_ANSWER = "INSTRUCTIONSETDESIGN"; // <-- !!! THAY ĐÁP ÁN ĐÚNG VÀO ĐÂY
+const ROWS_TO_GUESS = 15; // 75% của 7 hàng là 5.25, làm tròn lên 6
 
 const STORAGE_KEY = 'crosswordProgress';
 
@@ -351,7 +469,7 @@ function handleGuessKeyword() {
 
         // 2. Thông báo
         alert("CHÍNH XÁC! Bạn đã tìm ra KEY WORD!");
-        guessMessage.textContent = `CHÚC MỪNG! BẠN ĐÃ TÌM RA KEY WORD: ${KEY_WORD_ANSWER} (Vào lúc: ${timeString}) với số điểm: ${playerScore}`;
+        guessMessage.textContent = `Chúc mừng bạn đã tìm ra KEY WORD: ${KEY_WORD_ANSWER} (vào lúc: ${timeString}) với số điểm: ${playerScore}`;
         
         // 3. Vô hiệu hóa khu vực đoán
         guessInput.disabled = true;

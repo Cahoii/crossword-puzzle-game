@@ -1,6 +1,6 @@
 :root {
     /* Cài đặt Kích thước (Không đổi) */
-    --grid-size: 17;
+    --grid-size: 23;
     --cell-size: 40px;
     --clue-width: 40px;
 
@@ -378,4 +378,9 @@ h1 {
     text-align: center;
     font-weight: 600;
     color: #c0392b;
+}
+
+/* --- Kéo lưới ô chữ lên gần bảng điểm --- */
+.crossword-grid {
+    margin-top: 10px; /* Giảm khoảng cách trên lưới (thử 0px nếu muốn sát hơn) */
 }
