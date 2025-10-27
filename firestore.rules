@@ -1,20 +1,20 @@
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // Áp dụng cho collection 'completions' của bạn
+    // Chỉ cho phép bất kỳ ai (người chơi)
+    // được phép "tạo" (create) một bản ghi mới trong collection 'completions'
     match /completions/{docId} {
-    
-      // CHẶN tất cả mọi người (kể cả bạn) đọc, sửa, hoặc xóa dữ liệu
-      // từ phía client.
-      allow read, update, delete: if false;
+      allow create: if true; 
       
-      // CHỈ CHO PHÉP người dùng 'create' (tạo mới) một bản ghi
-      // Điều này cho phép hàm handleGuessKeyword() của bạn hoạt động
-      // (Nó chỉ 'addDoc', tức là 'create')
-      allow create: if request.resource.data.team is string &&
-                       request.resource.data.finalScore is number &&
-                       request.resource.data.status is string;
+      // Không ai được phép đọc, cập nhật hay xóa dữ liệu của người khác
+      allow read, update, delete: if false;
+    }
+
+    // Chặn tất cả các truy cập khác
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }
