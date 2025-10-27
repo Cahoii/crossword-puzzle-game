@@ -1,186 +1,146 @@
 // --- GIAI ĐOẠN 1: VẼ GIAO DIỆN ---
 
-// 1. ĐỊNH NGHĨA "ĐỀ BÀI" (Bộ câu hỏi tiếng Anh)
+// 1. ĐỊNH NGHĨA "ĐỀ BÀI" (PHIÊN BẢN CÔNG KHAI - KHÔNG CÓ ĐÁP ÁN/HINT)
 const puzzleData = [
     { 
-        row: 1, // Letter 'I'
-        answer: "IMMEDIATE", 
+        row: 1, 
         clue: "Addressing mode where the operand's value is contained within the instruction itself.",
-        hint1: "No memory reference needed for the operand.",
-        hint2: "IMMEDIATE",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 9 
     },
     { 
-        row: 2, // Letter 'N'
-        answer: "MNEMONICS", 
+        row: 2, 
         clue: "Symbolic abbreviations like ADD, SUB, LOAD used to represent machine opcodes.",
-        hint1: "Makes assembly language readable.",
-        hint2: "MNEMONICS",
-        startCol: 6, // 7 - 1
-        keywordIndex: 1 
+        startCol: 6, 
+        keywordIndex: 1,
+        answerLength: 9 
     },
-     { 
-        row: 3, // Letter 'S'
-        answer: "STACK", 
+    { 
+        row: 3, 
         clue: "Implicit addressing often involves operations on the top of this LIFO structure.",
-        hint1: "Uses PUSH and POP operations.",
-        hint2: "STACK",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 5 
     },
-     { 
-        row: 4, // Letter 'T'
-        answer: "TWOSCOMPLEMENT", 
+    { 
+        row: 4, 
         clue: "The most common scheme for representing signed integers in computers.",
-        hint1: "Negation involves inverting bits and adding one.",
-        hint2: "TWOSCOMPLEMENT",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 14 
     },
-     { 
-        row: 5, // Letter 'R'
-        answer: "REGISTER", 
+    { 
+        row: 5, 
         clue: "A high-speed storage location within the CPU used to hold data temporarily.",
-        hint1: "Faster to access than main memory.",
-        hint2: "REGISTER",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 8 
     },
-     { 
-        row: 6, // Letter 'U'
-        answer: "UNSIGNED", 
+    { 
+        row: 6, 
         clue: "An integer data type that represents only non-negative values.",
-        hint1: "Contrasts with signed integers.",
-        hint2: "UNSIGNED",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 8 
     },
-     { 
-        row: 7, // Letter 'C'
-        answer: "ASCII", 
+    { 
+        row: 7, 
         clue: "A widely used 7-bit character encoding standard.",
-        hint1: "Also known as IRA.",
-        hint2: "ASCII",
-        startCol: 5, // 7 - 2
-        keywordIndex: 2 
+        startCol: 5, 
+        keywordIndex: 2,
+        answerLength: 5 
     },
-     { 
-        row: 8, // Letter 'T'
-        answer: "TRANSFER", 
+    { 
+        row: 8, 
         clue: "Type of instruction that moves data (e.g., LOAD, STORE). Data ___.",
-        hint1: "Not Arithmetic, Logical, or Control.",
-        hint2: "TRANSFER",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 8 
     },
-     { 
-        row: 9, // Letter 'I'
-        answer: "DIRECT", 
+    { 
+        row: 9, 
         clue: "Addressing mode where the address field in the instruction contains the effective address of the operand.",
-        hint1: "Requires one memory reference to fetch the operand.",
-        hint2: "DIRECT",
-        startCol: 6, // 7 - 1
-        keywordIndex: 1 
+        startCol: 6, 
+        keywordIndex: 1,
+        answerLength: 6 
     },
-     { 
-        row: 10, // Letter 'O'
-        answer: "OPCODE", 
+    { 
+        row: 10, 
         clue: "The part of a machine instruction that specifies the operation to be performed.",
-        hint1: "Short for Operation Code.",
-        hint2: "OPCODE",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 6 
     },
-      { 
-        row: 11, // Letter 'N'
-        answer: "BOOLEAN", 
+    { 
+        row: 11, 
         clue: "Type of algebra used for logical operations like AND, OR, NOT.",
-        hint1: "Operates on true/false values.",
-        hint2: "BOOLEAN",
-        startCol: 2, // 7 - 5
-        keywordIndex: 5 
+        startCol: 2, 
+        keywordIndex: 5,
+        answerLength: 7 
     },
-     { 
-        row: 12, // Letter 'S'
-        answer: "SYSTEM", 
+    { 
+        row: 12, 
         clue: "Instructions for ___ Control are usually privileged and used by the OS.",
-        hint1: "Manages hardware resources.",
-        hint2: "SYSTEM",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 6 
     },
-     { 
-        row: 13, // Letter 'E'
-        answer: "EFFECTIVEADDRESS", 
+    { 
+        row: 13, 
         clue: "The actual memory address of an operand after all addressing mode calculations.",
-        hint1: "Abbreviated EA.",
-        hint2: "EFFECTIVEADDRESS",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 16 
     },
-     { 
-        row: 14, // Letter 'T'
-        answer: "BYTE", 
+    { 
+        row: 14, 
         clue: "A fundamental unit of data storage, typically consisting of 8 bits.",
-        hint1: "Can represent a single character.",
-        hint2: "BYTE",
-        startCol: 5, // 7 - 2
-        keywordIndex: 2 
+        startCol: 5, 
+        keywordIndex: 2,
+        answerLength: 4 
     },
-     { 
-        row: 15, // Letter 'D'
-        answer: "DISPLACEMENT", 
+    { 
+        row: 15, 
         clue: "Addressing mode that adds an offset value to a base register's content.",
-        hint1: "Also known as base-offset addressing.",
-        hint2: "DISPLACEMENT",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 12 
     },
-     { 
-        row: 16, // Letter 'E'
-        answer: "ENDIANNESS", 
+    { 
+        row: 16, 
         clue: "Refers to the byte order (Little or Big) in multi-byte data types.",
-        hint1: "Determines how bytes are stored in memory.",
-        hint2: "ENDIANNESS",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 10 
     },
-     { 
-        row: 17, // Letter 'S'
-        answer: "SHIFT", 
+    { 
+        row: 17, 
         clue: "A logical or arithmetic operation that moves bits left or right within a register.",
-        hint1: "Can be logical, arithmetic, or rotate.",
-        hint2: "SHIFT",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 5 
     },
-     { 
-        row: 18, // Letter 'I'
-        answer: "INPUTOUTPUT", 
+    { 
+        row: 18, 
         clue: "Instructions used to communicate with peripheral devices.",
-        hint1: "Often abbreviated as I/O.",
-        hint2: "INPUTOUTPUT",
-        startCol: 7, // 7 - 0
-        keywordIndex: 0 
+        startCol: 7, 
+        keywordIndex: 0,
+        answerLength: 11 
     },
-     { 
-        row: 19, // Letter 'G'
-        answer: "LOGICAL", 
+    { 
+        row: 19, 
         clue: "Operations like AND, OR, XOR, NOT fall into this category.",
-        hint1: "Operate on data bit-by-bit.",
-        hint2: "LOGICAL",
-        startCol: 4, // 7 - 3
-        keywordIndex: 3 
+        startCol: 4, 
+        keywordIndex: 3,
+        answerLength: 7 
     },
-     { 
-        row: 20, // Letter 'N'
-        answer: "INSTRUCTION", 
+    { 
+        row: 20, 
         clue: "A single operation specified by an opcode and possibly operands.",
-        hint1: "Basic unit of execution for a processor.",
-        hint2: "INSTRUCTION",
-        startCol: 6, // 7 - 1
-        keywordIndex: 1 
+        startCol: 6, 
+        keywordIndex: 1,
+        answerLength: 11 
     }
 ];
 
@@ -613,50 +573,93 @@ function handleCheckClick(event) {
 }
 
 // Xử lý nút Hint 1
+// Xử lý nút Hint 1 (ĐÃ CẬP NHẬT để gọi Cloud Function)
 function handleHint1Click(event) {
-    const rowNum = event.target.dataset.row;
+    const hintButton = event.target;
+    const rowNum = hintButton.dataset.row;
+
     if (playerScore < HINT_1_COST) {
         alert("Không đủ điểm để mua hint 1!");
         return;
     }
     if (!confirm(`Dùng ${HINT_1_COST} điểm để xem Gợi ý 1?`)) return;
 
-    playerScore -= HINT_1_COST;
-    document.getElementById('score-display').textContent = playerScore;
+    // Tạm khóa nút
+    hintButton.disabled = true;
 
-    const hintText1 = document.getElementById(`hint-1-${rowNum}`);
-    if (hintText1) hintText1.style.display = 'block';
-    event.target.disabled = true;
-    
-    // Mở khóa nút Hint 2
-    const hint2Btn = document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="2"]`);
-    if (hint2Btn) hint2Btn.disabled = false;
+    // Gọi Cloud Function tên là 'getHint'
+    const getHintFunc = functions.httpsCallable('getHint');
+    getHintFunc({ rowNum: rowNum, hintNum: 1 })
+        .then((result) => {
+            // Server trả về hint text
+            const hintText = result.data.hintText;
 
+            // Trừ điểm và cập nhật UI
+            playerScore -= HINT_1_COST;
+            document.getElementById('score-display').textContent = playerScore;
 
-    if (!gameProgress[rowNum]) gameProgress[rowNum] = {};
-    gameProgress[rowNum].hint1Purchased = true;
-    saveProgress();
+            const hintText1 = document.getElementById(`hint-1-${rowNum}`);
+            if (hintText1) {
+                hintText1.textContent = hintText; // Gán text từ server
+                hintText1.style.display = 'block';
+            }
+
+            // Mở khóa nút Hint 2
+            const hint2Btn = document.querySelector(`.hint-btn[data-row="${rowNum}"][data-hint="2"]`);
+            if (hint2Btn) hint2Btn.disabled = false;
+
+            if (!gameProgress[rowNum]) gameProgress[rowNum] = {};
+            gameProgress[rowNum].hint1Purchased = true;
+            saveProgress();
+        })
+        .catch((error) => {
+            console.error("Lỗi khi gọi getHint 1:", error);
+            alert("Đã xảy ra lỗi khi lấy gợi ý. Vui lòng thử lại.");
+            hintButton.disabled = false; // Mở khóa lại nút nếu lỗi
+        });
 }
 
 // Xử lý nút Hint 2
+// Xử lý nút Hint 2 (ĐÃ CẬP NHẬT để gọi Cloud Function)
 function handleHint2Click(event) {
-    const rowNum = event.target.dataset.row;
+    const hintButton = event.target;
+    const rowNum = hintButton.dataset.row;
+
     if (playerScore < HINT_2_COST) {
         alert("Không đủ điểm để mua hint 2!");
         return;
     }
     if (!confirm(`Dùng ${HINT_2_COST} điểm để xem Gợi ý 2?`)) return;
 
-    playerScore -= HINT_2_COST;
-    document.getElementById('score-display').textContent = playerScore;
+    // Tạm khóa nút
+    hintButton.disabled = true;
 
-    const hintText2 = document.getElementById(`hint-2-${rowNum}`);
-    if (hintText2) hintText2.style.display = 'block';
-    event.target.disabled = true;
+    // Gọi Cloud Function tên là 'getHint'
+    const getHintFunc = functions.httpsCallable('getHint');
+    getHintFunc({ rowNum: rowNum, hintNum: 2 })
+        .then((result) => {
+            // Server trả về hint text
+            const hintText = result.data.hintText;
 
-    if (!gameProgress[rowNum]) gameProgress[rowNum] = {};
-    gameProgress[rowNum].hint2Purchased = true;
-    saveProgress();
+            // Trừ điểm và cập nhật UI
+            playerScore -= HINT_2_COST;
+            document.getElementById('score-display').textContent = playerScore;
+
+            const hintText2 = document.getElementById(`hint-2-${rowNum}`);
+            if (hintText2) {
+                hintText2.textContent = hintText; // Gán text từ server
+                hintText2.style.display = 'block';
+            }
+
+            if (!gameProgress[rowNum]) gameProgress[rowNum] = {};
+            gameProgress[rowNum].hint2Purchased = true;
+            saveProgress();
+        })
+        .catch((error) => {
+            console.error("Lỗi khi gọi getHint 2:", error);
+            alert("Đã xảy ra lỗi khi lấy gợi ý. Vui lòng thử lại.");
+            hintButton.disabled = false; // Mở khóa lại nút nếu lỗi
+        });
 }
 
 /**
